@@ -1,0 +1,10 @@
+# Filename:     4pt.txt
+#
+# Location:     Neverland
+# EPSG:         25833
+# Profile with 4 points, 1st, 2nd segment W-E downhill, 3rd segment S-N uphill.
+#      X          Y       Z        W   tau_c    b0    h0     u0     mu        k
+     0.0        0.0    30.0     1.00   500.0  0.70  1.00   10.0  0.250  0.00240
+    10.0        0.0    22.5     1.00   600.0  0.60  1.00   10.0  0.260  0.00250
+    40.0        0.0     0.0     2.00  1000.0  0.35  0.00    0.0  0.320  0.00420
+    40.0       20.0    15.0     3.00   750.0  0.50  0.00    0.0  0.300  0.00390
