@@ -1,4 +1,4 @@
-function particlesData = particlesInitialisation(nPart, mTot, releaseArea)
+function particlesData = particlesInitialisation(nPart, mTot, releaseArea, dem)
     """ Initialize the particles mass and position
         Uniform distribution in the release area
       
@@ -12,10 +12,13 @@ function particlesData = particlesInitialisation(nPart, mTot, releaseArea)
           coordinates of begin and end of the release area
     Returns
       -------
-      particlesData: (4 x nPart) array
-          particles position: float (longitudinal coordinate)
-          particles cell number: float 
-          particles speed: float
-          particles mass: float
+      particlesData: ( x nPart) array
+          1. particles position: float (longitudinal coordinate)
+          2. particle speed: float (longitudinal coordinate)
+          3. particle acceleration accross X coordinate: float
+          4. particle acceleration accross Z coordinate: float
+          5. particles cell number: float
+          6. angle of the slope: float
+          7. particles mass: float
     """
 endfunction

@@ -11,7 +11,11 @@ function nNeighbors, neighbors = neighborsSearch(particlesPosition, dem)
       -------
       nNeighbors : int
           number of neighbors
-      neighbors : (nNeighbors) array
+      neighborsData : (nNeighbors) array
           n° of each neighbor of the particle
+          particles position: float (longitudinal coordinate)
+          particle speed: float (longitudinal coordinate)
+          particles cell number: float
+          particles mass: float
     """
 endfunction
