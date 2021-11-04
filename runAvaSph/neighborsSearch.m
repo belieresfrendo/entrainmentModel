@@ -1,9 +1,8 @@
-function nNeighbors, neighbors = ...
-                 neighborsSearch(particlePosition, particleCell, nParticles,
-                 particlesCellArray, particlesPositionArray, rKernel)
-
 %==============================================================================%                 
 %         GET THE NEIGHBORS OF A GIVEN PARTICLE FOR SPH COMPUTATION            %
+%                                                                              %
+% file: neighborsSearch.m                 Amaury Bélières--Frendo (2021-11-01) %
+% -----------------------                                                      %
 %                                                                              %
 % Parameters                                                                   %
 % ----------                                                                   %
@@ -26,6 +25,10 @@ function nNeighbors, neighbors = ...
 %   neighborsList : (nNeighbors) array                                         %
 %     n° of each neighbor of the particle                                      %
 %==============================================================================%
+
+function nNeighbors, neighbors = ...
+                 neighborsSearch(particlePosition, particleCell, nParticles,
+                 particlesCellArray, particlesPositionArray, rKernel)
 
   % 1rst step:
   % finding the number of neighbors

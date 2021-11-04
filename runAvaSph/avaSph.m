@@ -22,10 +22,10 @@ function avaSph
 %=MAIN LOOP, WHILE T<TMAX=======================================================
   %-loop on particles, for i=1:Npart--------------------------------------------
     %-search for the neighbors
-    %-compute the particules acceleration with eq (5.39)
-    %-compute the particles speed with eq (5.41)
-    %-compute the particles coordinates with (5.42)
-    %-compute the flow depth of each particle
+    %-compute the particule acceleration with eq (5.39)
+    %-compute the particle speed with eq (5.41)
+    %-compute the particle coordinates with (5.42)
+    %-compute the flow depth of the particle ???? ask matthias
   %-compute flow depth for each cell--------------------------------------------
   %-print results each 5 sec----------------------------------------------------
 
