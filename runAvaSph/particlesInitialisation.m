@@ -6,7 +6,7 @@ function particlesData = particlesInitialisation(nPart, mTot, releaseArea, dem)
 %                                                                              %
 %   Parameters                                                                 %
 %   ----------                                                                 %
-%     nPart : float                                                            %
+%     nPart: float                                                             %
 %         number of particles                                                  %
 %     mTot: float                                                              %
 %         initial total mass of the avalanche                                  %
@@ -29,9 +29,11 @@ function particlesData = particlesInitialisation(nPart, mTot, releaseArea, dem)
 %             x component of each particle acceleration                        %
 %         7. azArray: nPart float array                                        %
 %             y component of each particle acceleration                        %
-%         8. cellArray: nPart int array                                        %
+%         8. hArray: nPart float array                                         %
+%             flow depth on each particle                                      %
+%         9. cellArray: nPart int array                                        %
 %             cell number of each particle                                     %
-%         9. massArray: nPart float array                                      %
+%         10. massArray: nPart float array                                     %
 %             mass of each particle                                            %
 %===============================================================================
     
