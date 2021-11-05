@@ -1,8 +1,8 @@
 %==============================================================================%                 
-%              COMPUTE THE SPH ACCELERATION FOR A GIVEN PARTICLE               %
+%               COMPUTE THE SPH ACCELERATION OF A GIVEN PARTICLE               %
 %                                                                              %
 % file: computeAcc.m                      Amaury Bélières--Frendo (2021-11-04) %
-% -----------------------                                                      %
+% ------------------                                                           %
 %                                                                              %
 % Parameters                                                                   %
 % ----------                                                                   %

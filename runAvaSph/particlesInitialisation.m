@@ -1,5 +1,3 @@
-function particlesData = particlesInitialisation(nPart, mTot, releaseArea, dem)
-
 %===============================================================================
 %   Initialize the particles mass and position                                 %
 %       Uniform distribution in the release area                               %
@@ -37,4 +35,8 @@ function particlesData = particlesInitialisation(nPart, mTot, releaseArea, dem)
 %             mass of each particle                                            %
 %===============================================================================
     
+function particlesData = particlesInitialisation(nPart, mTot, releaseArea, dem)
+
+  for 
+
 endfunction

@@ -1,21 +1,40 @@
-function particleSpeed = computeSpeed(particlesData, neighbors, nNeighbors, dt)
-    """ compute the speed of a given particle
-    
-    Parameters
-      ----------
-      particlesData: (5 x nPart) array
-          particles position: float (longitudinal coordinate)
-          particles cell number: float
-          angle of the slope: float
-          particles speed: float
-          particles mass: float
-      nNeighbors : int
-          number of neighbors
-      dt: float
-          spatial path
-    Returns
-      -------
-      particleSpeed: float
-          speed of the particle in X direction
-    """
+%==============================================================================%
+%                 COMPUTE THE SPEED OF A GIVEN PARTICLE                        %
+%                                                                              %
+% file : computeSpeed.m                   Amaury Bélières--Frendo (2021-11-05) %
+%                                                                              %
+% Parameters                                                                   %
+% ----------                                                                   %
+%   uxOld: float                                                               %
+%       x component of the speed at t=t(n)                                     %
+%   uzOld: float                                                               %
+%       z component of the speed at t=t(n)                                     %
+%   axOld: float                                                               %
+%       x component of the acceleration at t=t(n)                              %
+%   azOld: float                                                               %
+%       z component of the acceleration at t=t(n)                              %
+%   ax: float                                                                  %
+%       x component of the acceleration at t=t(n+1)                            %
+%   az: float                                                                  %
+%       z component of the acceleration at t=t(n+1)                            %
+%   dt: float                                                                  %
+%       temporal path                                                          %
+%   gamma: float                                                               %
+%       Newmark scheme parameter                                               %
+% Returns                                                                      %
+% -------                                                                      %
+%   ux: float                                                                  %
+%       x component of the speed at t=t(n+1)                                   %
+%   uz: float                                                                  %
+%       z component of the speed at t=t(n+1)                                   %
+%==============================================================================%
+
+function particleSpeed = computeSpeed(uxOld, uzOld, axOld, azOld, ax, az, ...
+                                      dt, gamma)
+
+  ux = uxOld + dt*( (1-gamma)*axOld + gamma*ax )
+  uz = uzOld + dt*( (1-gamma)*azOld + gamma*az )
+
+  return ux, uz
+  
 endfunction
