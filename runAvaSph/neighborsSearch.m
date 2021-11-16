@@ -6,16 +6,16 @@
 %                                                                              %
 % Parameters                                                                   %
 % ----------                                                                   %
-%   particlePosition: float                                                    %
-%     position of the particle                                                 %
+%   longitudinal: float                                                        %
+%     longitudinal position of the particle                                    %
 %   particleCell: int                                                          %
 %     number of the particle cell                                              %
-%   nParticles: int                                                            %
+%   nPart: int                                                                 %
 %     number of particles                                                      %
-%   particlesCellArray: (nParticles x 1) Array                                 %
-%     particles cell number: int - each particle cell number                   %
-%   particlesCellPosition: (nParticles x 1) Array                              %
-%     particles cell position: int - each particle cell longitudinal coordinate%
+%   cellArray: nPart int array                                                 %
+%     each particle cell number                                                %
+%   longitudinalArray: nPart float array                                       %
+%     each particle longitudinal coordinate                                    %
 %   rKernel: float                                                             %
 %     smoothing lenght, and cell size                                          %
 % Returns                                                                      %
@@ -26,9 +26,9 @@
 %     n° of each neighbor of the particle                                      %
 %==============================================================================%
 
-function nNeighbors, neighbors = ...
-                 neighborsSearch(particlePosition, particleCell, nParticles,
-                 particlesCellArray, particlesPositionArray, rKernel)
+function nNeighbors, neighbors = neighborsSearch(longitudinal, particleCell, ...
+                                                 nPart, cellArray, ...
+                                                 longitudinalArray, rKernel)
 
   % 1rst step:
   % finding the number of neighbors
@@ -36,10 +36,10 @@ function nNeighbors, neighbors = ...
   cellK=particleCell
   neighborsBool=zeros(nParticles,1)
   for l=1:nParticles
-    cellL = particlesCellArray(l)
+    cellL = cellArray(l)
     % if the particle isn't on boundaries
     if (l!=k)&(cellK==cellL|cellK==cellL+1|cellK==cellL-1)
-        dr = abs(particlePosition-particlesPositionArray(i)
+        dr = abs(longitudinal-longitudinalArray(l))
         if dr<rKernel
           nNeighbors ++
           neighborsBool(l)=1
@@ -49,7 +49,7 @@ function nNeighbors, neighbors = ...
   
   % 2nd step:
   % if the particles n°l is a neigbor of the particle n°k, then writte his
-  % reference in the list 'neighborsList
+  % reference in the list 'neighborsList'
   neighborsList = zeros(nNeighbors)
   i=1
   for l=1:nParticles
