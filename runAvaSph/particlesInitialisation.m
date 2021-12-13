@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 function particlesData = particlesInitialisation(nPart, mTot, hGridArray, nCell, rho, cellLenght)
 
+=======
+>>>>>>> 46d86a4e4a822b6cafef788371a07fb0b4547dcf
 %===============================================================================
 %   Initialize the particles mass and position                                 %
 %       Uniform distribution in the release area                               %
@@ -36,6 +39,7 @@ function particlesData = particlesInitialisation(nPart, mTot, hGridArray, nCell,
 %         10. massArray: nPart float array                                     %
 %             mass of each particle                                            %
 %===============================================================================
+<<<<<<< HEAD
 
     # The function will be called only once -> dont'give a shit about complexity
 
@@ -79,4 +83,11 @@ function particlesData = particlesInitialisation(nPart, mTot, hGridArray, nCell,
       partPerCell = releaseArea(i, 3);
     endfor #i
     
+=======
+    
+function particlesData = particlesInitialisation(nPart, mTot, releaseArea, dem)
+
+  for 
+
+>>>>>>> 46d86a4e4a822b6cafef788371a07fb0b4547dcf
 endfunction

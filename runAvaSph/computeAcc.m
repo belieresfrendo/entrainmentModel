@@ -1,8 +1,8 @@
 %==============================================================================%                 
-%              COMPUTE THE SPH ACCELERATION FOR A GIVEN PARTICLE               %
+%               COMPUTE THE SPH ACCELERATION OF A GIVEN PARTICLE               %
 %                                                                              %
 % file: computeAcc.m                      Amaury Bélières--Frendo (2021-11-04) %
-% -----------------------                                                      %
+% ------------------                                                           %
 %                                                                              %
 % Parameters                                                                   %
 % ----------                                                                   %
@@ -28,7 +28,7 @@
 %       smoothing lenght, and cell size                                        %
 %   k: int
 %       number of the current particle
-%   x, z, ux, uz, hk, uxArray, uzArray ...
+%   x, z, ux, uz, hk, uxArray, uzArray, cellk, delta ...
 %       ...
 %     
 % Returns                                                                      %
@@ -42,7 +42,7 @@
 % d(ui)/dt = gi - delta(i1)*tan(delta)*g3 - K(i)*g3*d(h)/dxi 
 function accX, accZ = computeAcc(nNeighbors, neighborsList, xArray, zArray, ...
                                  uxArray, uzArray, hArray, gAcc, rKernel, ...
-                                 k, x, z, ux, uz, hk, rho)
+                                 k, x, z, ux, uz, hk, rho, cellk, delta)
   
     % to optimize code performance, better to compute facKernel and dfacKernel
     % out of this function
@@ -57,9 +57,9 @@ function accX, accZ = computeAcc(nNeighbors, neighborsList, xArray, zArray, ...
       dz = zArray(l) - z
       dux = uxArray(l) - ux
       duz = uzArray(l) - uz
-%     gravAcc3 = scalProd(nx, ny, nz, 0, 0, gravAcc)
-      gravAcc3 = gravAcc
-
+      anglek = grid(cellk, ...)
+      gravAcc3 = gravAcc*sind/cosd(anglek)
+ 
       
       if r < 0.001 * rKernel
         # impose a minimum distance between particles
@@ -86,8 +86,8 @@ function accX, accZ = computeAcc(nNeighbors, neighborsList, xArray, zArray, ...
 
     endfor %l
     
-    accX = g*cos/sin theta - tan fric * g3 - Kx*g3*gradX
-    accZ = g*cos/sin theta - tan fric * g3 - Kz*g3*gradZ
+    accX = g*cosd/sind(anglek) - tand(delta) * gravAcc3 - Kx*gravAcc3*gradX
+    accZ = g*cosd/sind(anglek) - tand(delta) * gravAcc3 - Kz*gravAcc3*gradZ
     
     return accX, accZ
     
